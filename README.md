@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Forecast
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Це README нашого проєкту, тут найголовніша інфа і не тільки.
 
-## Available Scripts
+## Учасники проєкту
 
-In the project directory, you can run:
+Олег - Тімлід (oleg21062010@gmail.com)  
+Женя - Скрам (krimouski2010@gmail.com)  
+Діма - Девелопер ()  
+Даша - Девелопер (d.remen2009@gmail.com)  
+Марк - Девелопер (isaev24102011@gmail.com)  
+Макар - Девелопер (makar2009on@gmail.com)  
+Назар - Девелопер (asagacka@gmail.com)  
+Мирослав - Девелопер (slavik0507k@gmail.com slav.kuki@gmail.com)  
+Міша - Девелопер ()  
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Figma
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Посилання на макет нашого проєкту, на забудьте склонувати собі для кращої праці: https://www.figma.com/design/CdobDjdsgjuSZBcH2o0voz/Untitled?node-id=1-2&t=iBfMOSC8CC3jptEK-0
 
-### `npm test`
+## Trello
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Наше трелло: https://trello.com/b/f0aYebIm/%D1%81%D0%B5%D1%80%D0%B3%D0%B5%D0%B9-%D0%B1%D1%80%D0%B0%D1%82%D1%83%D1%85%D0%B0
 
-### `npm run build`
+## Технічне завдання
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Посилання на ТЗ нашого проєкту: https://docs.google.com/spreadsheets/d/1oFOUk_OGLUoMi2aO0q9yPPdOTAIWHYgFqGNoDygXOxc/edit?gid=0#gid=0
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## GitHub
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Підказки як користуватись гітхабом, щоб більш детально розуміти обовʼязково подивіться відео яке скинув тімлід у тг.
 
-### `npm run eject`
+Штука яку ми робим один раз, тобто клонування проєкту в свою папку:
+```
+git clone https://github.com/oleh-yaroshenko/forecast.git
+cd my-project
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Потім ви робите свою гілку:
+```
+git checkout -b [ваше імʼя]
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Коли ви зробили секцію або частину своєї роботи то робите цю штуку і потім повідомляєте тімліда що ви це зробили і переносите свою картку у трелло.
+```
+git add .
+git commit -m "[ваше повідомлення що ви зробили]"
+git push origin [назва саме вашої гілки]
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Також:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Щоб перевірите на якій гілці ви знаходитесь:
+```
+git branch
+```
+І не забуйте перевіряти щоб ви знаходились на тій папочці за допомогою:
+```
+cd forecast
+```
 
-## Learn More
+## Правила
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Всі бібліотеки я вже додав, ну проте ті які були вказазі в ТЗ, тому бібліотеки завантажувати **не потрібно**
+- Весь свій код ми пишемо в своїх файлах в папочці components і стилі ми також робимо в тій папочці
+- Прохання називати свої файли відповідно до секції чи завдання яке ви робите
+- Гілку main ніхто не чіпає, ви повинні працювати лише в своїй гілці
