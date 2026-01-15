@@ -1,9 +1,10 @@
 import './App.css';
+import ModalForm from './components/ModalForm';
 
 function App() {
   return (
     <>
-    lorem
+      <ModalForm/>
     </>
   );
 }
