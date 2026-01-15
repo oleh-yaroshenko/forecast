@@ -34,7 +34,7 @@
 Штука яку ми робим один раз, тобто клонування проєкту в свою папку:
 ```
 git clone https://github.com/oleh-yaroshenko/forecast.git
-cd my-project
+cd forecast
 npm install
 ```
 
