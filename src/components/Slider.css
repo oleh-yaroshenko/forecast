@@ -16,7 +16,7 @@
   color: #000;
 }
 
-.Nature-slider {
+ .Nature-slider {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,3 +57,8 @@
   object-fit: cover;
   display: block;
 }
+@media(max-width: 1025px){
+.Nature {
+  display: none;
+}
+} 
