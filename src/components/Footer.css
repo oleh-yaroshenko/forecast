@@ -27,14 +27,14 @@ a{
 }
 
 .footer__title{
-font-family: var(--second-family);
+font-family:  "Montserrat Alternates", sans-serif;;
 font-weight: 500;
 font-size: 12px;
 color: #000;
   margin-bottom: 18px;
 }
 .footer-join__title {
-font-family: var(--second-family);
+font-family:  "Montserrat Alternates", sans-serif;;
 font-weight: 500;
 font-size: 12px;
 color: #000;
@@ -42,7 +42,7 @@ color: #000;
 }
 
 .footer__address-link {
-  font-family: var(--second-family);
+  font-family: "Montserrat Alternates", sans-serif; ;
 font-weight: 500;
 font-size: 8px;
 color: #000;
@@ -69,9 +69,63 @@ color: #000;
   height: 35px;
 }
 
+.footer__address-content{
+  display: flex;
+  gap: 0;
+}
 
+@media(min-width: 768px){
+  .footer__container{
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: center;
+    gap: 85px;
+    flex-direction: row;
+  }
+  .footer__logo-box img{
+    width: 80px;
 
+  }
+  .footer__address-section, .footer-join{
+ max-width: 220px;
+  }
+   .footer-join__title, .footer__title{
+    font-size: 14px;
 
+   }
+   .footer__address-link{
+    font-size: 10px;
+   }
+}
+@media(min-width:1200px){
+  .footer{
+padding: 48px 32px;
+  
+  }
+  .footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 48px;
+     display: flex;
+     justify-content: flex-start;
+  }
+  .footer__logo-box img{
+    width: 80px;
 
+  }
+  .footer-join__title, .footer__title{
+    font-size: 14px;
+
+   }
+   .footer__address-link{
+      font-size: 12px;
+  }
+
+  .social-networks-list__icon {
+    width: 40px;
+    height: 40px;
+  }
+}
 
 
