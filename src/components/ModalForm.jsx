@@ -58,7 +58,7 @@ function ModalForm() {
                     <input className='form-input' required placeholder='Password' type="password" name="" id="Password" />
                 </div>
 
-                <button className="form-btn">Sing up</button>
+                <button className="form-btn">Log in</button>
 
                 <p className='form-p'>Don't have an account? <a onClick={handleCloseA} className='form-a'>Sing up!</a></p>
             </form>
