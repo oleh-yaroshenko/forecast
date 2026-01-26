@@ -1,22 +1,21 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import '../modalForm.css'
 
 function ModalForm() {
     const [value, setValue] = useState(true)
-    const Form = useRef()
-    const Form2 = useRef()
+    const [value2, setValue2] = useState(true)
 
     function handleClose() {
-        Form.current.classList.toggle('close')
+        setValue2(prev => !prev)
     }
 
-    function handleCloseA(){
-        setValue(false)
+    function handleCloseA(e){
+        setValue(prev => !prev)
     }
 
     return (
         <>
-            <form ref={Form} action="" className={value == true ? "form" : "form close"}>
+            <form action="" className={value2 == true ? "form" : "form close"}>
                 <h2 className='form-h2'>Sing up</h2>
                 <span onClick={handleClose} className='closeModal'>✖</span>
 
@@ -37,11 +36,11 @@ function ModalForm() {
 
                 <button className="form-btn">Sing up</button>
 
-                <p className='form-p'>Already have an account? <a onClick={handleCloseA} className='form-a' href="#">Log In</a></p>
+                <p className='form-p'>Already have an account? <a onClick={handleCloseA} className='form-a'>Log In!</a></p>
             </form>
 
-            <form ref={Form2} action="" className={value == true ? "form2 close" : "form2 open"}>
-                <h2 className='form-h2'>Sing up</h2>
+            <form action="" className={value == true ? "form2 close" : "form2 open"}>
+                <h2 className='form-h2'>Sing in</h2>
                 <span onClick={handleClose} className='closeModal'>✖</span>
 
                 <div className="form-box">
@@ -61,7 +60,7 @@ function ModalForm() {
 
                 <button className="form-btn">Sing up</button>
 
-                <p className='form-p'>Don't have an account? <a onClick={handleClose} className='form-a' href="#">Sing up!</a></p>
+                <p className='form-p'>Don't have an account? <a onClick={handleCloseA} className='form-a'>Sing up!</a></p>
             </form>
         </>
     )

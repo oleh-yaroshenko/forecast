@@ -62,6 +62,8 @@
 
 .form-a{
     color: black;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .closeModal{
@@ -69,14 +71,17 @@
     position: absolute;
     right: 20px;
     top: 10px;
+    cursor: pointer;
 }
 
 .close{
-    opacity: 0;
+    display: none;
+    box-shadow: none;
 }
 
 .form2{
     opacity: 0;
+    box-shadow: none;
 }
 
 .open{
