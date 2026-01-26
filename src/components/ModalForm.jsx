@@ -40,7 +40,7 @@ function ModalForm() {
             </form>
 
             <form action="" className={value == true ? "form2 close" : "form2 open"}>
-                <h2 className='form-h2'>Sing in</h2>
+                <h2 className='form-h2'>Log in</h2>
                 <span onClick={handleClose} className='closeModal'>✖</span>
 
                 <div className="form-box">
