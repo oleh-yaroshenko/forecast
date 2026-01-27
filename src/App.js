@@ -1,13 +1,11 @@
 import './App.css';
+import WheaterChart from './components/WeatherChart.tsx';
 
 function App() {
   return (
     <div className="App">
-      <div className="App"></div>
-        <header className="App-header">
-          <h1>Welcome to My React App</h1>
-        </header>
-    </div > 
+      <WheaterChart />
+    </div>
   );
 }
 

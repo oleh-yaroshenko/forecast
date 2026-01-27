@@ -1,0 +1,59 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p {
+    margin-top: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+ul {
+    list-style: none;
+}
+
+.weather-card {
+  background-color: #E6E6E6; 
+  padding: 20px;
+  border-radius: 15px;       
+  font-family: sans-serif;
+  width: 100%;
+  width: 1140px;
+  
+  box-sizing: border-box;   
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.weather-title {
+  margin: 0 0 20px 10px;
+  color: #333;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.chart-container {
+  position: relative;
+
+    height: 550px;
+  width: 100%;
+}
+
