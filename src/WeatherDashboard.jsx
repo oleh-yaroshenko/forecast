@@ -36,6 +36,26 @@ export default function WeatherDashboard() {
         <br />
        <small>Max °C</small>  {weather.main.temp_max.toFixed(1)}°C
       </WeatherCard>
+
+      <WeatherCard title="Humidity">
+      {weather.main.humidity}%
+      <br />
+        <img src={clowd} alt="" />
+      </WeatherCard>
+
+      <WeatherCard title="Pressure">
+        {weather.main.pressure} hPa
+        <br />
+        <img src={pressure} alt="" />
+      </WeatherCard>
+
+      <WeatherCard title="Wind speed">
+        {weather.wind.speed} m/s
+        <br />
+        <img src={wind} alt="" />
+      </WeatherCard>
+
+      
     </div>
   );
 }
