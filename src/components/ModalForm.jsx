@@ -4,43 +4,61 @@ import '../modalForm.css'
 function ModalForm() {
     const [value, setValue] = useState(true)
     const [value2, setValue2] = useState(true)
-    const [local, setLocal] = useState({
-        contacts: [],
-        name: '',
-        email: '',
-        password: ''
-    })
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const {name, email, password} = local
-        setLocal(prev => ({
-            contacts: [...prev.contacts, {name, email, password}],
+    const [value3, setValue3] = useState(true)
+    const [local, setLocal] = useState(() => {
+        const saved = localStorage.getItem("contacts");
+        return {
+            contacts: saved ? JSON.parse(saved) : [],
             name: '',
             email: '',
             password: ''
-        }))
+        };
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const { name, email, password, contacts } = local
+
+        const isDuplicate = contacts.some(
+            (contact) => contact.name === name && contact.email === email && contact.password === password
+        );
+
+        if (isDuplicate) {
+            alert(`${name} is already in contacts`);
+            return;
+        }
+
+        setLocal(prev => {
+            const newContacts = [...prev.contacts, { name, email, password }];
+            localStorage.setItem("contacts", JSON.stringify(newContacts));
+            return {
+                ...prev,
+                contacts: newContacts,
+                name: '',
+                email: '',
+                password: ''
+            };
+        });
+
     }
 
     function handleClose() {
-        console.log(local.contacts)
         setValue2(prev => !prev)
     }
 
     function handleCloseA() {
         setValue(prev => !prev)
+        setValue3(prev => !prev)
     }
 
-    // useEffect((prevState) => {
-    //     const saved = localStorage.getItem(`${local.contacts.name}`);
-    //     if (saved) {
-    //         this.setState({ contacts: JSON.parse(saved) });
-    //     }
+    function handleClose2() {
+        setValue3(prev => !prev)
+        setValue2(prev => !prev)
+    }
 
-    //     if (prevState.contacts !== local.contacts) {
-    //         localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
-    //     }
-    // })
+    useEffect(() => {
+        localStorage.setItem("contacts", JSON.stringify(local.contacts));
+    }, [local.contacts]);
 
     return (
         <>
@@ -77,9 +95,9 @@ function ModalForm() {
                 <p className='form-p'>Already have an account? <a onClick={handleCloseA} className='form-a'>Log In!</a></p>
             </form>
 
-            <form action="" className={value == true ? "form2 close" : "form2 open"}>
+            <form action="" className={(value || value3) ? "form2 close" : "form2 open"}>
                 <h2 className='form-h2'>Log in</h2>
-                <span onClick={handleClose} className='closeModal'>✖</span>
+                <span onClick={handleClose2} className='closeModal'>✖</span>
 
                 <div className="form-box">
                     <label className='form-label' htmlFor="username">Username</label>
