@@ -37,19 +37,16 @@
   z-index: 1; 
   transform: scale(0.7);
   opacity: 0.4;
+
 }
-
-
-
-.slide--active {
+ .slide--active {
   width: 384px; 
   height: 211px; 
-  z-index: 10; 
+   z-index: 10; 
   transform: scale(1);
   opacity: 1;
-  margin: 0 20px; 
- 
-}
+  margin: 0 20px;  
+} 
 
 .slide-media {
   width: 100%;
