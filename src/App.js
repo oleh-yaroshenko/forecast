@@ -1,9 +1,10 @@
-import './App.css';
+import Pets from "./Pets";
 
 function App() {
   return (
-    <>
-    </>
+    <div>
+      <Pets />
+    </div>
   );
 }
 

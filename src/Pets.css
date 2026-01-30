@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+@media (min-width: 1441px) {
+  .pets {
+    display: none;
+  }
+}
+
+.pets {
+  font-family: "Montserrat", sans-serif;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.pets__title {
+  width: 100%;
+  max-width: 1200px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+
+.pets__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 270px);
+  gap: 32px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.pets__card img {
+  width: 270px;
+  height: 208px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.pets__card p {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.pets__btn {
+  margin-top: 28px;
+  align-self: flex-start; 
+  margin-left: calc((100% - 1200px) / 2);
+  background-color: #ffb36c;
+  border: none;
+  padding: 8px 18px; 
+  border-radius: 6px; 
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
