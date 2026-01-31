@@ -1,61 +1,60 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
-
-@media (min-width: 1441px) {
-  .pets {
-    display: none;
-  }
-}
-
-.pets {
+* {
+  box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  padding: 40px 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: left; 
+}
+
+.cards {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center; 
+  margin-bottom: 20px;
 }
 
-
-.pets__title {
-  width: 100%;
-  max-width: 1200px;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 24px;
+.card {
+  width: 270px;
+  text-align: center;
 }
 
-
-.pets__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 270px);
-  gap: 32px;
-  justify-content: center;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.pets__card img {
+.card img {
   width: 270px;
   height: 208px;
   object-fit: cover;
-  border-radius: 12px;
 }
 
-.pets__card p {
+.card p {
   margin-top: 12px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.4;
+  font-weight: 700;
+  font-size: 16px;
 }
 
-.pets__btn {
-  margin-top: 28px;
-  align-self: flex-start; 
-  margin-left: calc((100% - 1200px) / 2);
-  background-color: #ffb36c;
+.see-more {
+  padding: 12px 32px;
+  background: #ffb36c;
   border: none;
-  padding: 8px 18px; 
-  border-radius: 6px; 
-  font-size: 13px;
-  font-weight: 500;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  text-align: left; 
+}
+
+@media (max-width: 768px) {
+  .cards {
+    gap: 20px;
+    justify-content: center;
+  }
 }
