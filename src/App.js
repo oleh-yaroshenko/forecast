@@ -1,9 +1,9 @@
-import Pets from "./Pets";
+import Pets from "./components/Pets";
 
 function App() {
   return (
     <div>
-      <Pets />
+      <Pets></Pets>
     </div>
   );
 }
