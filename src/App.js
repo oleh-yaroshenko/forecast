@@ -1,10 +1,15 @@
+import './App.css';
+import Footer from './components/Footer';
+import Slider from './components/Slider';
 import Pets from "./components/Pets";
 
 function App() {
   return (
-    <div>
+    <>
       <Pets></Pets>
-    </div>
+      <Slider></Slider>
+      <Footer></Footer>
+    </>
   );
 }
 
