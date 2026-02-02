@@ -1,56 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-
-
-
+* {
+  margin: 0;
+  padding: 0;
+}
 
 .Nature {
-  padding: 80px 0;
+  padding: 80px 0 48px;
   background-color: #fff;
 }
 
 .Nature__title {
-  font-family: var(--font-family);
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 20px;
   color: #000;
+  padding: 0 0 40px 150px;
 }
 
- .Nature-slider {
+.Nature-slider {
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: relative;
 }
-
-
 
 .slide-item {
-  width: 384px;     
-  height: 250px;     
+  width: 384px;
+  height: 211px;
   position: relative;
-  transition: opacity 0.3s ease; 
-  opacity: 0.4;      
-  border-radius: 12px;
+  transition: 0.3s;
   overflow: hidden;
 }
+
 .swiper-slide-active {
-  opacity: 1;       
   z-index: 10;
 }
 
-
 .slide-image {
- width: 384px;
- height: 211px;
+  width: 384px;
+  height: 211px;
   object-fit: cover;
   display: block;
+  position: relative;
 }
-@media (max-width: 1025px) {
+
+@media (max-width: 1439px) {
   .Nature {
     display: none;
   }
-} 
-
-
+}

@@ -1,9 +1,12 @@
 import './App.css';
+import Footer from './components/Footer';
+import Slider from './components/Slider';
 
 function App() {
   return (
     <>
-    lorem10
+      <Slider></Slider>
+      <Footer></Footer>
     </>
   );
 }
