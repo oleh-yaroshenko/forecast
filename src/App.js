@@ -1,5 +1,5 @@
 import './App.css';
-import WheaterChart from './components/WeatherChart.tsx';
+import WheaterChart from './components/WeatherChart.jsx';
 
 function App() {
   return (
