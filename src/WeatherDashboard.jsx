@@ -55,7 +55,11 @@ export default function WeatherDashboard() {
         <img src={wind} alt="" />
       </WeatherCard>
 
-      
+      <WeatherCard title="Visibility">
+        {weather.visibility ? "Unlimited" : "—"}
+        <br />
+        <img src={visibility} alt="" />
+      </WeatherCard>
     </div>
   );
 }

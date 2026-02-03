@@ -1,0 +1,34 @@
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  background: #f2f2f2;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.weather-card {
+  background: #e6e6e6;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.weather-title {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.weather-value {
+  font-size: 22px;
+  font-weight: bold;
+  color: #222;
+}
+
+.weather-value small {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 5px;
+}
