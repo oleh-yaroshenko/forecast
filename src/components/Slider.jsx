@@ -28,8 +28,9 @@ function Slider() {
           grabCursor={true}
           centeredSlides={true}
           loop={true}
+          loopAdditionalSlides={images.length}
           slidesPerView="auto"
-          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,

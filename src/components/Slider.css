@@ -5,6 +5,15 @@
   padding: 0;
 }
 
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 .Nature {
   padding: 80px 0 48px;
   background-color: #fff;
@@ -15,14 +24,12 @@
   font-weight: 500;
   font-size: 20px;
   color: #000;
-  padding: 0 0 40px 150px;
+  padding: 0 0 40px 0;
 }
 
 .Nature-slider {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  width: 100%;
 }
 
 .slide-item {
