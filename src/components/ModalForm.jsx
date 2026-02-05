@@ -68,20 +68,31 @@ function ModalForm() {
 
     const userTrue = (e) => {
         e.preventDefault()
-        const { name, email, password, contacts } = user
+
+        const { name, email, password } = user
+
+        const contactsFromLS = JSON.parse(localStorage.getItem('contacts')) || []
+
+        const isUserExist = contactsFromLS.some(
+            u => u.email === email && u.password === password && u.name == name
+        )
+
+        if (isUserExist) {
+            alert('Ви увійшли в акаунт')
+        } else {
+            alert('Немає такого юзера')
+        }
         setUser(prev => {
-            const newContacts = [...prev.contacts, { name, email, password }];
             return {
                 ...prev,
-                contacts: newContacts,
+                contacts: [],
                 name: '',
                 email: '',
                 password: ''
             };
-        });
-        const userParse = JSON.stringify(user.contacts)
-        userParse == localStorage.getItem('contacts') ? alert('Ви увійшли в акаунт') : alert('Немає такого юзера')
+        })
     }
+
 
     useEffect(() => {
         localStorage.setItem("contacts", JSON.stringify(local.contacts));
