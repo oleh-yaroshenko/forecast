@@ -1,3 +1,5 @@
+/* WeatherChart.css */
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -7,14 +9,7 @@ a {
   font-style: normal;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-p {
+h1, h2, h3, h4, h5, h6, ul, p {
   margin-top: 0;
 }
 
@@ -33,15 +28,12 @@ ul {
   padding: 20px;
   border-radius: 15px;
   font-family: sans-serif;
-
-  width: 1140px;
+  width: auto;
   max-width: 100%;
-
   box-sizing: border-box;
   margin: 0 auto;
   margin-left: 150px;
   margin-right: 150px;
-  width: auto;
 }
 
 .weather-title {
@@ -53,7 +45,6 @@ ul {
 
 .chart-container {
   position: relative;
-
   height: 550px;
   width: 100%;
 }

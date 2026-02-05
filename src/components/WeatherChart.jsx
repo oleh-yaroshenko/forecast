@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,10 +20,60 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend,
+  Legend
 );
 
 const WeatherChart = () => {
+  const [chartData, setChartData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const API_KEY = "533d7532d61d36db17cc95c0414c1870";
+    const CITY = "Dubai";
+    const URL = `https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&appid=${API_KEY}&units=metric`;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(URL);
+        const data = await response.json();
+
+        const slicedList = data.list.slice(0, 9);
+
+        const labels = slicedList.map((item) => {
+          const date = new Date(item.dt * 1000);
+          return `${date.getHours()}:00`;
+        });
+
+        const temps = slicedList.map((item) => item.main.temp);
+
+        setChartData({
+          labels: labels,
+          datasets: [
+            {
+              label: "Temperature",
+              data: temps,
+              borderColor: "#F4A261",
+              backgroundColor: "transparent",
+              borderWidth: 3,
+              tension: 0.4, 
+              pointRadius: 4,
+              pointHoverRadius: 6,
+              pointHoverBackgroundColor: "#F4A261",
+              pointHoverBorderColor: "#fff",
+              pointHoverBorderWidth: 2,
+            },
+          ],
+        });
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -49,14 +99,12 @@ const WeatherChart = () => {
         },
       },
       y: {
-        min: 5,
-        max: 30,
         grid: {
           color: "#d1d1d1",
           drawBorder: false,
         },
         ticks: {
-          stepSize: 5,
+          stepSize: 1, 
           callback: (value) => `${value}°C`,
           color: "#333",
         },
@@ -68,56 +116,17 @@ const WeatherChart = () => {
     },
   };
 
-  const data = {
-    labels: [
-      "11 pm",
-      "Oct 14",
-      "1 am",
-      "2 am",
-      "3 am",
-      "4 am",
-      "5 am",
-      "6 am",
-      "7 am",
-      "8 am",
-      "9 am",
-      "10 am",
-      "11 am",
-      "12 pm",
-      "1 pm",
-      "2 pm",
-      "3 pm",
-      "4 pm",
-      "5 pm",
-      "6 pm",
-    ],
-    datasets: [
-      {
-        label: "Temperature",
-        data: [
-          13.5, 12, 11, 10.1, 9.9, 9.8, 10.2, 11.5, 12.1, 12.8, 13.5, 15.2,
-          17.5, 18.2, 19.4, 21.2, 23.8, 25.1, 25.9, 26.0,
-        ],
-        borderColor: "#F4A261",
-        backgroundColor: "transparent",
-        borderWidth: 3,
-        tension: 0.4,
-        pointRadius: 0,
-        pointHoverRadius: 6,
-        pointHoverBackgroundColor: "#F4A261",
-        pointHoverBorderColor: "#fff",
-        pointHoverBorderWidth: 2,
-      },
-    ],
-  };
+  if (loading) {
+    return <div className="weather-card">Loading weather data</div>;
+  }
 
   return (
-  <div className="weather-chart-wrapper">
-    <div className="weather-card">
-      <h3 className="weather-title">Hourly forecast</h3>
-      <div className="chart-container">
-        <Line options={options} data={data} />
-      </div>
+    <div className="weather-chart-wrapper">
+      <div className="weather-card">
+        <h3 className="weather-title">Hourly forecast </h3>
+        <div className="chart-container">
+          {chartData && <Line options={options} data={chartData} />}
+        </div>
       </div>
     </div>
   );
