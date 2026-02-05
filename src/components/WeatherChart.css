@@ -1,16 +1,15 @@
-/* WeatherChart.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
   font-family: "Roboto", sans-serif;
 }
 
-a {
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
   text-decoration: none;
   font-style: normal;
-}
-
-h1, h2, h3, h4, h5, h6, ul, p {
-  margin-top: 0;
 }
 
 img {
@@ -24,23 +23,20 @@ ul {
 }
 
 .weather-card {
-  background-color: #e6e6e6;
-  padding: 20px;
+  background-color: #e8e8e8;
+  padding: 26px 40px;
   border-radius: 15px;
-  font-family: sans-serif;
   width: auto;
   max-width: 100%;
   box-sizing: border-box;
-  margin: 0 auto;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin: 0 150px;
 }
 
 .weather-title {
-  margin: 0 0 20px 10px;
-  color: #333;
-  font-weight: 700;
-  font-size: 1.2rem;
+  padding: 0 0 20px 40px;
+  color: #000;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .chart-container {
@@ -49,17 +45,15 @@ ul {
   width: 100%;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 1439px) {
   .weather-card {
-    margin-left: 50px;
-    margin-right: 50px;
-    width: auto;
+    margin: 0 100px;
+    padding: 20px 38px;
   }
 
   .weather-title {
-    font-size: 1rem;
-    margin-left: 5px;
-    margin-bottom: 15px;
+    font-size: 12px;
+    padding: 0 0 28px 6px;
   }
 
   .chart-container {
@@ -67,17 +61,15 @@ ul {
   }
 }
 
-@media (min-width: 576px) and (max-width: 891px) {
+@media (max-width: 833px) {
   .weather-card {
-    margin-left: 100px;
-    margin-right: 100px;
-    width: auto;
+    padding: 18px 24px;
+    margin: 0 50px;
   }
 
   .weather-title {
-    font-size: 1rem;
-    margin-left: 5px;
-    margin-bottom: 15px;
+    font-size: 10px;
+    padding: 0 0 16px 20px;
   }
 
   .chart-container {

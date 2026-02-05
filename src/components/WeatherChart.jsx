@@ -55,7 +55,7 @@ const WeatherChart = () => {
               borderColor: "#F4A261",
               backgroundColor: "transparent",
               borderWidth: 3,
-              tension: 0.4, 
+              tension: 0.4,
               pointRadius: 4,
               pointHoverRadius: 6,
               pointHoverBackgroundColor: "#F4A261",
@@ -104,7 +104,7 @@ const WeatherChart = () => {
           drawBorder: false,
         },
         ticks: {
-          stepSize: 1, 
+          stepSize: 1,
           callback: (value) => `${value}°C`,
           color: "#333",
         },
