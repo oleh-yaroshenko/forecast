@@ -1,10 +1,16 @@
-import { useEffect, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import '../modalForm.css'
 
 function ModalForm() {
     const [value, setValue] = useState(true)
-    const [value2, setValue2] = useState(true)
+    const [value2, setValue2] = useState(false)
     const [value3, setValue3] = useState(true)
+    const [user, setUser] = useState({
+        contacts: [],
+        name: '',
+        email: '',
+        password: ''
+    })
     const [local, setLocal] = useState(() => {
         const saved = localStorage.getItem("contacts");
         return {
@@ -24,7 +30,7 @@ function ModalForm() {
         );
 
         if (isDuplicate) {
-            alert(`${name} is already in contacts`);
+            alert(`${name} is already user`);
             return;
         }
 
@@ -56,12 +62,34 @@ function ModalForm() {
         setValue2(prev => !prev)
     }
 
+    function openForm() {
+        setValue2(prev => !prev)
+    }
+
+    const userTrue = (e) => {
+        e.preventDefault()
+        const { name, email, password, contacts } = user
+        setUser(prev => {
+            const newContacts = [...prev.contacts, { name, email, password }];
+            return {
+                ...prev,
+                contacts: newContacts,
+                name: '',
+                email: '',
+                password: ''
+            };
+        });
+        const userParse = JSON.stringify(user.contacts)
+        userParse == localStorage.getItem('contacts') ? alert('Ви увійшли в акаунт') : alert('Немає такого юзера')
+    }
+
     useEffect(() => {
         localStorage.setItem("contacts", JSON.stringify(local.contacts));
     }, [local.contacts]);
 
     return (
         <>
+            <button onClick={openForm}>click</button>
             <form onSubmit={handleSubmit} action="" className={value2 == true ? "form" : "form close"}>
                 <h2 className='form-h2'>Sing up</h2>
                 <span onClick={handleClose} className='closeModal'>✖</span>
@@ -95,26 +123,35 @@ function ModalForm() {
                 <p className='form-p'>Already have an account? <a onClick={handleCloseA} className='form-a'>Log In!</a></p>
             </form>
 
-            <form action="" className={(value || value3) ? "form2 close" : "form2 open"}>
+            <form action="" onSubmit={userTrue} className={(value || value3) ? "form2 close" : "form2 open"}>
                 <h2 className='form-h2'>Log in</h2>
                 <span onClick={handleClose2} className='closeModal'>✖</span>
 
                 <div className="form-box">
                     <label className='form-label' htmlFor="username">Username</label>
-                    <input className='form-input' required placeholder='Username' type="text" name="" id="username" />
+                    <input className='form-input' required value={user.name} onChange={(e) => setUser(prev => ({
+                        ...prev,
+                        name: e.target.value
+                    }))} placeholder='Username' type="text" name="" id="username" />
                 </div>
 
                 <div className="form-box">
                     <label className='form-label' htmlFor="E-Mail">E-Mail</label>
-                    <input className='form-input' required placeholder='E-Mail' type="text" name="" id="E-Mail" />
+                    <input className='form-input' required value={user.email} onChange={(e) => setUser(prev => ({
+                        ...prev,
+                        email: e.target.value
+                    }))} placeholder='E-Mail' type="text" name="" id="E-Mail" />
                 </div>
 
                 <div className="form-box">
                     <label className='form-label' htmlFor="Password">Password</label>
-                    <input className='form-input' required placeholder='Password' type="password" name="" id="Password" />
+                    <input className='form-input' required value={user.password} onChange={(e) => setUser(prev => ({
+                        ...prev,
+                        password: e.target.value
+                    }))} placeholder='Password' type="password" name="" id="Password" />
                 </div>
 
-                <button className="form-btn">Log in</button>
+                <button type='submit' className="form-btn">Log in</button>
 
                 <p className='form-p'>Don't have an account? <a onClick={handleCloseA} className='form-a'>Sing up!</a></p>
             </form>
