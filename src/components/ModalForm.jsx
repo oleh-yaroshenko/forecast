@@ -1,12 +1,9 @@
-import { use, useEffect, useState } from 'react'
-import '../modalForm.css'
+import { useState } from 'react'
+import './ModalForm.css'
 
 function ModalForm() {
-    const [value, setValue] = useState(true)
-    const [value2, setValue2] = useState(false)
-    const [value3, setValue3] = useState(true)
+    const [activeForm, setActiveForm] = useState(null)
     const [user, setUser] = useState({
-        contacts: [],
         name: '',
         email: '',
         password: ''
@@ -48,23 +45,9 @@ function ModalForm() {
 
     }
 
-    function handleClose() {
-        setValue2(prev => !prev)
-    }
-
-    function handleCloseA() {
-        setValue(prev => !prev)
-        setValue3(prev => !prev)
-    }
-
-    function handleClose2() {
-        setValue3(prev => !prev)
-        setValue2(prev => !prev)
-    }
-
-    function openForm() {
-        setValue2(prev => !prev)
-    }
+    const openSignup = () => setActiveForm('signup')
+    const openLogin = () => setActiveForm('login')
+    const closeForm = () => setActiveForm(null)
 
     const userTrue = (e) => {
         e.preventDefault()
@@ -74,7 +57,7 @@ function ModalForm() {
         const contactsFromLS = JSON.parse(localStorage.getItem('contacts')) || []
 
         const isUserExist = contactsFromLS.some(
-            u => u.email === email && u.password === password && u.name == name
+            u => u.email === email && u.password === password && u.name === name
         )
 
         if (isUserExist) {
@@ -82,90 +65,88 @@ function ModalForm() {
         } else {
             alert('Немає такого юзера')
         }
-        setUser(prev => {
-            return {
-                ...prev,
-                contacts: [],
-                name: '',
-                email: '',
-                password: ''
-            };
+        setUser({
+            name: '',
+            email: '',
+            password: ''
         })
     }
 
-
-    useEffect(() => {
-        localStorage.setItem("contacts", JSON.stringify(local.contacts));
-    }, [local.contacts]);
+    const isSignupOpen = activeForm === 'signup'
+    const isLoginOpen = activeForm === 'login'
 
     return (
         <>
-            <button onClick={openForm}>click</button>
-            <form onSubmit={handleSubmit} action="" className={value2 == true ? "form" : "form close"}>
-                <h2 className='form-h2'>Sing up</h2>
-                <span onClick={handleClose} className='closeModal'>✖</span>
+            <button onClick={openSignup}>click</button>
+            <div className={`modal ${isSignupOpen ? 'open' : 'close'}`}>
+                <form onSubmit={handleSubmit} action="" className="form">
+                    <h2 className='form-h2'>Sing up</h2>
+                    <span onClick={closeForm} className='closeModal'>✖</span>
 
-                <div className="form-box">
-                    <label className='form-label' htmlFor="username">Username</label>
-                    <input className='form-input' value={local.name} onChange={(e) => setLocal(prev => ({
-                        ...prev,
-                        name: e.target.value
-                    }))} required placeholder='Username' type="text" name="" id="username" />
-                </div>
+                    <div className="form-box">
+                        <label className='form-label' htmlFor="username">Username</label>
+                        <input className='form-input' value={local.name} onChange={(e) => setLocal(prev => ({
+                            ...prev,
+                            name: e.target.value
+                        }))} required placeholder='Username' type="text" name="" id="username" />
+                    </div>
 
-                <div className="form-box">
-                    <label className='form-label' htmlFor="E-Mail">E-Mail</label>
-                    <input className='form-input' value={local.email} onChange={(e) => setLocal(prev => ({
-                        ...prev,
-                        email: e.target.value
-                    }))} required placeholder='E-Mail' type="text" name="" id="E-Mail" />
-                </div>
+                    <div className="form-box">
+                        <label className='form-label' htmlFor="E-Mail">E-Mail</label>
+                        <input className='form-input' value={local.email} onChange={(e) => setLocal(prev => ({
+                            ...prev,
+                            email: e.target.value
+                        }))} required placeholder='E-Mail' type="text" name="" id="E-Mail" />
+                    </div>
 
-                <div className="form-box">
-                    <label className='form-label' htmlFor="Password">Password</label>
-                    <input className='form-input' value={local.password} onChange={(e) => setLocal(prev => ({
-                        ...prev,
-                        password: e.target.value
-                    }))} required placeholder='Password' type="password" name="" id="Password" />
-                </div>
+                    <div className="form-box">
+                        <label className='form-label' htmlFor="Password">Password</label>
+                        <input className='form-input' value={local.password} onChange={(e) => setLocal(prev => ({
+                            ...prev,
+                            password: e.target.value
+                        }))} required placeholder='Password' type="password" name="" id="Password" />
+                    </div>
 
-                <button type='submit' className="form-btn">Sing up</button>
+                    <button type='submit' className="form-btn">Sing up</button>
 
-                <p className='form-p'>Already have an account? <a onClick={handleCloseA} className='form-a'>Log In!</a></p>
-            </form>
+                    <p className='form-p'>Already have an account? <a onClick={openLogin} className='form-a'>Log In</a></p>
+                </form>
+            </div>
 
-            <form action="" onSubmit={userTrue} className={(value || value3) ? "form2 close" : "form2 open"}>
-                <h2 className='form-h2'>Log in</h2>
-                <span onClick={handleClose2} className='closeModal'>✖</span>
+            <div className={`modal ${isLoginOpen ? 'open' : 'close'}`}>
+                <form action="" onSubmit={userTrue} className="form">
+                    <h2 className='form-h2'>Log in</h2>
+                    <span onClick={closeForm} className='closeModal'>✖</span>
 
-                <div className="form-box">
-                    <label className='form-label' htmlFor="username">Username</label>
-                    <input className='form-input' required value={user.name} onChange={(e) => setUser(prev => ({
-                        ...prev,
-                        name: e.target.value
-                    }))} placeholder='Username' type="text" name="" id="username" />
-                </div>
+                    <div className="form-box">
+                        <label className='form-label' htmlFor="username">Username</label>
+                        <input className='form-input' required value={user.name} onChange={(e) => setUser(prev => ({
+                            ...prev,
+                            name: e.target.value
+                        }))} placeholder='Username' type="text" name="" id="username" />
+                    </div>
 
-                <div className="form-box">
-                    <label className='form-label' htmlFor="E-Mail">E-Mail</label>
-                    <input className='form-input' required value={user.email} onChange={(e) => setUser(prev => ({
-                        ...prev,
-                        email: e.target.value
-                    }))} placeholder='E-Mail' type="text" name="" id="E-Mail" />
-                </div>
+                    <div className="form-box">
+                        <label className='form-label' htmlFor="E-Mail">E-Mail</label>
+                        <input className='form-input' required value={user.email} onChange={(e) => setUser(prev => ({
+                            ...prev,
+                            email: e.target.value
+                        }))} placeholder='E-Mail' type="text" name="" id="E-Mail" />
+                    </div>
 
-                <div className="form-box">
-                    <label className='form-label' htmlFor="Password">Password</label>
-                    <input className='form-input' required value={user.password} onChange={(e) => setUser(prev => ({
-                        ...prev,
-                        password: e.target.value
-                    }))} placeholder='Password' type="password" name="" id="Password" />
-                </div>
+                    <div className="form-box">
+                        <label className='form-label' htmlFor="Password">Password</label>
+                        <input className='form-input' required value={user.password} onChange={(e) => setUser(prev => ({
+                            ...prev,
+                            password: e.target.value
+                        }))} placeholder='Password' type="password" name="" id="Password" />
+                    </div>
 
-                <button type='submit' className="form-btn">Log in</button>
+                    <button type='submit' className="form-btn">Log in</button>
 
-                <p className='form-p'>Don't have an account? <a onClick={handleCloseA} className='form-a'>Sing up!</a></p>
-            </form>
+                    <p className='form-p'>Don't have an account? <a onClick={openSignup} className='form-a'>Sing up!</a></p>
+                </form>
+            </div>
         </>
     )
 }
