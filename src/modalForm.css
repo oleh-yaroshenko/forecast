@@ -87,3 +87,17 @@
 .open{
     opacity: 1;
 }
+
+@media (max-width: 1024px){
+    .form, .form2{
+        width: 60%;
+        margin-left: -30%;
+    }
+}
+
+@media (max-width: 375px){
+    .form, .form2{
+        width: 80%;
+        margin-left: -40%;
+    }
+}
