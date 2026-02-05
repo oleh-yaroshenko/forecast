@@ -95,7 +95,7 @@
     }
 }
 
-@media (max-width: 375px){
+@media (max-width: 425px){
     .form, .form2{
         width: 80%;
         margin-left: -40%;
