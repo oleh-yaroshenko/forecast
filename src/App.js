@@ -1,4 +1,6 @@
 import './App.css';
+import DBoard from './components/DBoard';
+import Header from './components/Header';
 import WeatherDashboard from "./components/WeatherDashboard";
 import ModalForm from './components/ModalForm';
 import Footer from './components/Footer';
@@ -9,6 +11,8 @@ import WheaterChart from './components/WeatherChart.jsx';
 function App() {
   return (
     <>
+      <Header></Header>
+      <DBoard></DBoard>
       <ModalForm></ModalForm>
       <WeatherDashboard></WeatherDashboard>
       <WheaterChart></WheaterChart>
