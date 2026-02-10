@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+.weather-container {
+    margin: 0 150px;
+    padding: 26px 76px 42px;
+    background: #e8e8e8;
+    border-radius: 20px;
+}
+
+.weather-title {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.weather-list {
+    display: grid;
+    gap: 10px;
+}
+
+.weather-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 14px 50px;
+    background: #d9d9d9;
+    border-radius: 10px;
+}
+
+.weather-day {
+    font-weight: 500;
+}
+
+.weather-temp {
+    font-weight: 500;
+    text-align: center
+}
+
+.weather-condition {
+    font-weight: 500;
+    text-align: end;
+}
+
+@media (max-width: 1439px) {
+    .weather-container {
+        margin: 0 100px;
+        padding: 20px 46px 36px;
+        border-radius: 16px;
+    }
+
+    .weather-title {
+        font-size: 12px;
+    }
+
+    .weather-row {
+        padding: 12px 15px;
+    }
+
+    .weather-day,
+    .weather-temp,
+    .weather-condition {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 833px) {
+    .weather-container {
+        margin: 0 50px;
+        padding: 18px 24px 36px;
+    }
+
+    .weather-title {
+        font-size: 10px;
+    }
+
+    .weather-list {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 40px;
+        row-gap: 36px;
+    }
+
+    .weather-row {
+        padding: 10px 16px 16px;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .weather-day,
+    .weather-temp,
+    .weather-condition {
+        font-size: 10px;
+        text-align: center;
+    }
+}
