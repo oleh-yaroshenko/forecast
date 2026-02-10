@@ -1,11 +1,20 @@
 import './App.css';
 import WeatherDashboard from "./components/WeatherDashboard";
-
+import ModalForm from './components/ModalForm';
+import Footer from './components/Footer';
+import Slider from './components/Slider';
+import Pets from "./components/Pets";
+import WheaterChart from './components/WeatherChart.jsx';
 
 function App() {
   return (
     <>
-    <WeatherDashboard />
+      <ModalForm></ModalForm>
+      <WeatherDashboard></WeatherDashboard>
+      <WheaterChart></WheaterChart>
+      <Pets></Pets>
+      <Slider></Slider>
+      <Footer></Footer>
     </>
   );
 }

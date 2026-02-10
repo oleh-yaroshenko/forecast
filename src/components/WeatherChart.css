@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-style: normal;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+.weather-card {
+  background-color: #e8e8e8;
+  padding: 26px 40px;
+  border-radius: 15px;
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 150px;
+}
+
+.weather-title {
+  padding: 0 0 20px 40px;
+  color: #000;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.chart-container {
+  position: relative;
+  height: 550px;
+  width: 100%;
+}
+
+@media (max-width: 1439px) {
+  .weather-card {
+    margin: 0 100px;
+    padding: 20px 38px;
+  }
+
+  .weather-title {
+    font-size: 12px;
+    padding: 0 0 28px 6px;
+  }
+
+  .chart-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: 833px) {
+  .weather-card {
+    padding: 18px 24px;
+    margin: 0 50px;
+  }
+
+  .weather-title {
+    font-size: 10px;
+    padding: 0 0 16px 20px;
+  }
+
+  .chart-container {
+    height: 370px;
+  }
+}
