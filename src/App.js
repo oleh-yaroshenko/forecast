@@ -1,9 +1,12 @@
 import './App.css';
+import DBoard from './components/DBoard';
+import Header from './components/Header';
 
 function App() {
   return (
     <>
-    s
+    <Header></Header>
+    <DBoard></DBoard>
     </>
   );
 }
