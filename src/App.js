@@ -1,4 +1,5 @@
 import './App.css';
+import WeatherFavorites from './components/WeatherApp';
 import WeatherList from './components/WeatherList';
 import DBoard from './components/DBoard';
 import Header from './components/Header';
@@ -15,6 +16,7 @@ function App() {
       <Header></Header>
       <DBoard></DBoard>
       <ModalForm></ModalForm>
+      <WeatherFavorites></WeatherFavorites>
       <WeatherDashboard></WeatherDashboard>
       <WheaterChart></WheaterChart>
       <WeatherList></WeatherList>
