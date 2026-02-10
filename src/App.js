@@ -1,11 +1,11 @@
 import './App.css';
-import WeatherDashboard from "./WeatherDashboard";
+import WeatherDashboard from "./components/WeatherDashboard";
 
 
 function App() {
   return (
     <>
-    <WeatherDashboard />;
+    <WeatherDashboard />
     </>
   );
 }

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./WeatherDashboard.css";
-import termometer from "./images-weather/termometer.svg";
-import clowd from "./images-weather/clowd.svg";
-import pressure from "./images-weather/pressure.svg";
-import wind from "./images-weather/wind.svg";
-import visibility from "./images-weather/visibility.svg";
+import termometer from "../assets/termometer.svg";
+import clowd from "../assets/clowd.svg";
+import pressure from "../assets/pressure.svg";
+import wind from "../assets/wind.svg";
+import visibility from "../assets/visibility.svg";
 
 const API_KEY = "533d7532d61d36db17cc95c0414c1870";
 const CITY = "Kyiv";
