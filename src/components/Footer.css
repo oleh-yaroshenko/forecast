@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #ffb36c;
+  padding: 40px 150px 64px;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 104px;
+}
+
+.footer__logo-box img {
+  width: 90px;
+  height: 62px;
+  display: block;
+}
+
+.footer__address-section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.footer__title,
+.footer-join__title {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.footer__address-link {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000;
+}
+
+.footer-join {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.social-networks-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-networks-list__icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.footer__address-content {
+  display: flex;
+  gap: 0;
+  font-style: normal;
+}
+
+@media (max-width: 1439px) {
+  .footer {
+    padding: 36px 100px;
+  }
+
+  .footer__container {
+    gap: 100px;
+  }
+
+  .footer__logo-box img {
+    width: 58px;
+    height: 40px;
+  }
+
+  .footer__title,
+  .footer-join__title {
+    font-size: 14px;
+  }
+
+  .footer__address-link {
+    font-size: 10px;
+  }
+
+  .social-networks-list__icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 833px) {
+  .footer {
+    padding: 30px 50px;
+  }
+
+  .footer__container {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 25px;
+    column-gap: 75px;
+    text-align: center;
+  }
+
+  .footer__logo-box img {
+    width: 50px;
+    height: 34px;
+  }
+
+  .footer__address-section {
+    text-align: left;
+    flex-grow: 1;
+  }
+
+  .footer-join {
+    text-align: center;
+  }
+
+  .footer__title,
+  .footer-join__title {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  .footer__address-link {
+    font-size: 8px;
+  }
+}
