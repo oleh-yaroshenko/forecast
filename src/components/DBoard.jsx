@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './DBoard.css';
 import navbg from '../assets/navbg.png';
 import searchIcon from '../assets/navlook.png';
 
-const DBoard = () => {
-    const [cityText, setCityText] = useState("");
+const DBoard = ({ cityInput, onCityInput, onSearch }) => {
     const [currentDate, setCurrentDate] = useState(new Date());
 
     useEffect(() => {
@@ -14,12 +13,6 @@ const DBoard = () => {
 
     const monthYear = currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }).toUpperCase();
     const weekDay = currentDate.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric' });
-
-    const handleSearch = async () => {
-        if (!cityText) return;
-
-        console.log(cityText);
-    };
 
     return (
         <section className="dboard">
@@ -42,16 +35,19 @@ const DBoard = () => {
                     </div>
                 </div>
 
-                <form className="search-box" onSubmit={(e) => {
-                    e.preventDefault();
-                    handleSearch();
-                }}>
+                <form
+                    className="search-box"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        onSearch(cityInput);
+                    }}
+                >
                     <input
                         type="text"
                         placeholder="Search location..."
                         className="search-input"
-                        value={cityText}
-                        onChange={(e) => setCityText(e.target.value)}
+                        value={cityInput}
+                        onChange={(e) => onCityInput(e.target.value)}
                     />
                     <button type="submit" className="search-submit">
                         <img src={searchIcon} alt="search" />

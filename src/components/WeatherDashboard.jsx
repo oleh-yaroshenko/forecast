@@ -7,19 +7,20 @@ import wind from "../assets/wind.svg";
 import visibility from "../assets/visibility.svg";
 
 const API_KEY = "533d7532d61d36db17cc95c0414c1870";
-const CITY = "Kyiv";
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
-export default function WeatherDashboard() {
+export default function WeatherDashboard({ city }) {
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
+    if (!city) return;
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`
+      `${BASE_URL}/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`
     )
       .then(res => res.json())
       .then(data => setWeather(data))
-      .catch(err => console.error(err));
-  }, []);
+      .catch(() => setWeather(null));
+  }, [city]);
 
   if (!weather) return <p>Loading weather...</p>;
 

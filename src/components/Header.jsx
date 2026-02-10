@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Header.css';
 import logo from '../assets/7forecast.png';
 import userIcon from '../assets/usernav.png';
 
-const Header = () => {
+const Header = ({ accountName, onOpenSignup, onOpenLogin }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -22,8 +22,8 @@ const Header = () => {
                     <a href="" className="nav-link">Menu</a>
                 </div>
 
-                <button className="signup-btn">Sign up</button>
-                <img src={userIcon} alt="User" className="user-icon" />
+                <button className="signup-btn" onClick={onOpenSignup}>{accountName || 'Sign up'}</button>
+                <img src={userIcon} alt="User" className="user-icon" onClick={onOpenLogin} />
             </nav>
             <div className="mobile-trigger" onClick={toggleMenu}>
                 <span className="menu-label">Menu</span>
@@ -36,8 +36,8 @@ const Header = () => {
                     <a href="" className="nav-link-mobile">Menu</a>
                 </div>
                 <div className="toolbar">
-                    <img src={userIcon} alt="User" className="user-icon" />
-                    <button className="signup-btn">Sign up</button>
+                    <img src={userIcon} alt="User" className="user-icon" onClick={onOpenLogin} />
+                    <button className="signup-btn" onClick={onOpenSignup}>{accountName || 'Sign up'}</button>
                 </div>
             </div>
         </header>

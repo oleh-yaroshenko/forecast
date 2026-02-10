@@ -1,37 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import "./WeatherList.css"
 
 const API_KEY = '533d7532d61d36db17cc95c0414c1870';
-const API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=Kyiv&appid=${API_KEY}&units=metric;`
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
-const WeatherList = () => {
+const WeatherList = ({ city }) => {
   const [weatherData, setWeatherData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchWeatherData();
-  }, []);
-
-  const fetchWeatherData = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(API_URL);
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch weather data');
-      }
-
-      const data = await response.json();
-      const processedData = processForecastData(data.list);
-      setWeatherData(processedData);
-      setError(null);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const processForecastData = (forecastList) => {
     const dailyData = {};
@@ -57,6 +31,27 @@ const WeatherList = () => {
 
     return Object.values(dailyData).slice(0, 8);
   };
+
+  useEffect(() => {
+    if (!city) return;
+    const fetchWeatherData = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/forecast?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`);
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch weather data');
+        }
+
+        const data = await response.json();
+        const processedData = processForecastData(data.list);
+        setWeatherData(processedData);
+      } catch (err) {
+        setWeatherData([]);
+      }
+    };
+
+    fetchWeatherData();
+  }, [city]);
 
   return (
     <div className="weather-container">

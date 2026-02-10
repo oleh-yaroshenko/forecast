@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import './ModalForm.css'
 
-function ModalForm() {
-    const [activeForm, setActiveForm] = useState(null)
+function ModalForm({ activeForm, onClose, onOpenSignup, onOpenLogin, onAuth }) {
     const [user, setUser] = useState({
         name: '',
         email: '',
@@ -43,11 +42,9 @@ function ModalForm() {
             };
         });
 
+        onAuth(name)
+        onClose()
     }
-
-    const openSignup = () => setActiveForm('signup')
-    const openLogin = () => setActiveForm('login')
-    const closeForm = () => setActiveForm(null)
 
     const userTrue = (e) => {
         e.preventDefault()
@@ -62,6 +59,8 @@ function ModalForm() {
 
         if (isUserExist) {
             alert('Ви увійшли в акаунт')
+            onAuth(name)
+            onClose()
         } else {
             alert('Немає такого юзера')
         }
@@ -77,11 +76,10 @@ function ModalForm() {
 
     return (
         <>
-            <button onClick={openSignup}>click</button>
             <div className={`modal ${isSignupOpen ? 'open' : 'close'}`}>
                 <form onSubmit={handleSubmit} action="" className="form">
                     <h2 className='form-h2'>Sing up</h2>
-                    <span onClick={closeForm} className='closeModal'>✖</span>
+                    <span onClick={onClose} className='closeModal'>✖</span>
 
                     <div className="form-box">
                         <label className='form-label' htmlFor="username">Username</label>
@@ -109,14 +107,14 @@ function ModalForm() {
 
                     <button type='submit' className="form-btn">Sing up</button>
 
-                    <p className='form-p'>Already have an account? <a onClick={openLogin} className='form-a'>Log In</a></p>
+                    <p className='form-p'>Already have an account? <a onClick={onOpenLogin} className='form-a'>Log In</a></p>
                 </form>
             </div>
 
             <div className={`modal ${isLoginOpen ? 'open' : 'close'}`}>
                 <form action="" onSubmit={userTrue} className="form">
                     <h2 className='form-h2'>Log in</h2>
-                    <span onClick={closeForm} className='closeModal'>✖</span>
+                    <span onClick={onClose} className='closeModal'>✖</span>
 
                     <div className="form-box">
                         <label className='form-label' htmlFor="username">Username</label>
@@ -144,7 +142,7 @@ function ModalForm() {
 
                     <button type='submit' className="form-btn">Log in</button>
 
-                    <p className='form-p'>Don't have an account? <a onClick={openSignup} className='form-a'>Sing up!</a></p>
+                    <p className='form-p'>Don't have an account? <a onClick={onOpenSignup} className='form-a'>Sing up!</a></p>
                 </form>
             </div>
         </>

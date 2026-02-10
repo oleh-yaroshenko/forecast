@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -23,14 +23,16 @@ ChartJS.register(
   Legend
 );
 
-const WeatherChart = () => {
+const API_KEY = "533d7532d61d36db17cc95c0414c1870";
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
+
+const WeatherChart = ({ city }) => {
   const [chartData, setChartData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const API_KEY = "533d7532d61d36db17cc95c0414c1870";
-    const CITY = "Dubai";
-    const URL = `https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&appid=${API_KEY}&units=metric`;
+    if (!city) return;
+    const URL = `${BASE_URL}/forecast?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
 
     const fetchData = async () => {
       try {
@@ -66,13 +68,13 @@ const WeatherChart = () => {
         });
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching weather data:", error);
         setLoading(false);
       }
     };
 
+    setLoading(true);
     fetchData();
-  }, []);
+  }, [city]);
 
   const options = {
     responsive: true,
